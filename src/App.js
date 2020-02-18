@@ -38,6 +38,7 @@ const App = () => {
             index={i}
             done={todo.done}
             label={todo.label}
+            deleteTodo={deleteTodo}
           />
         );
       })}
