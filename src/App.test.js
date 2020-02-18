@@ -11,4 +11,13 @@ describe("todo list", () => {
     const { getByText } = render(<App />);
     getByText("Todo List:");
   });
+  
+  it("should add a new todo", () => {
+    const { getByPlaceholderText, getByText } = render(<App />);
+    const input = getByPlaceholderText("New todo");
+    fireEvent.change(input, { target: { value: "Test todo" } });
+    fireEvent.click(getByText("Add todo"));
+    getByText(/Test todo/i);
+  });
+
 });
