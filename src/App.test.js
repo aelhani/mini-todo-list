@@ -46,4 +46,11 @@ describe("todo list", () => {
     expect(getByTestId("todo-0")).toHaveAttribute("aria-checked", "true");
   });
 
+  it("should unmout from DOM", () => {
+    const { getByText, unmount, queryByText } = render(<App />);
+    getByText("Todo List:");
+    unmount();
+    expect(queryByText("Todo List:")).toBeNull();
+  });
+
 });
