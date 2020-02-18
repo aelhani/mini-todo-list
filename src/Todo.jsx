@@ -1,6 +1,6 @@
 import React from "react";
 
-const Todo = ({ label, done, index, deleteTodo }) => {
+const Todo = ({ label, done, index, deleteTodo, toggleTodo }) => {
   return (
     <>
       <div
@@ -15,6 +15,7 @@ const Todo = ({ label, done, index, deleteTodo }) => {
         {`- ${label}`}
       </div>
       <button onClick={() => deleteTodo(index)}>done</button>
+      <button onClick={() => toggleTodo(index)}>check</button>
     </>
   );
 };

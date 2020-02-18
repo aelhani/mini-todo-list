@@ -35,4 +35,15 @@ describe("todo list", () => {
     // expect(count === 1 && newCount === 0).toBe(true);
   });
 
+  it("should check a todo as finished", () => {
+    const { getByText, getByTestId, getByPlaceholderText } = render(<App />);
+    const input = getByPlaceholderText("New todo");
+    fireEvent.change(input, { target: { value: "Test todo" } });
+    fireEvent.click(getByText("Add todo"));
+    getByText(/Test todo/i);
+    fireEvent.click(getByText("check"));
+    expect(getByTestId("todo-0")).toHaveStyle("text-decoration: line-through");
+    expect(getByTestId("todo-0")).toHaveAttribute("aria-checked", "true");
+  });
+
 });

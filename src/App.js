@@ -22,6 +22,12 @@ const App = () => {
     setTodos([...todos.filter((e, i) => i !== index)]);
   };
 
+  const toggleTodo = index => {
+    let newTodos = Object.assign([], todos);
+    newTodos[index].done = !newTodos[index].done;
+    setTodos(newTodos);
+  };
+
   return (
     <div className="App">
       <h1>Todo List:</h1>
@@ -39,6 +45,7 @@ const App = () => {
             done={todo.done}
             label={todo.label}
             deleteTodo={deleteTodo}
+            toggleTodo={toggleTodo}
           />
         );
       })}
